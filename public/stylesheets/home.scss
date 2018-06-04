@@ -1,0 +1,25 @@
+@import './xsjbase.scss';
+.topInfo {
+  list-style: none;
+  font-size: rpx(30);
+}
+
+.go-user-page {
+  display: block;
+  padding: rpx(30);
+  color: #00B7FF;
+  font-size: rpx(30);
+  line-height: 1;
+}
+
+.list-box {
+  padding: rpx(20);
+  font-size: rpx(22);
+  text-align: left;
+  box-sizing: border-box;
+  li{
+    height: rpx(36);
+    line-height: rpx(36);
+    margin-top: rpx(40)
+  }
+}

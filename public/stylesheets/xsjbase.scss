@@ -1,0 +1,38 @@
+  /**
+  * 一些共用的基础样式
+  * 使用原则：
+  * --不需要/不想起/样式名
+  * --颜色，方便以后统一管理
+  */
+
+  @function rpx($px) {
+      @return $px / 32 * 1rem;
+  }
+
+  .hide {
+      display: none;
+  }
+
+  .show {
+      display: block;
+  }
+
+  .ellipsis {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+  }
+
+  .ps-center {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: auto;
+  }
+
+  .back-img {
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+  }

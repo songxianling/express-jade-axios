@@ -1,0 +1,52 @@
+style
+    include ../public/stylesheets/home.css
+include layout    
+block content
+  input#ourl(type="hidden",value="#{ourl}")
+  #xsjVideo
+  a#js-go-user.go-user-page(href="/user") 去用户page1
+  - var abb = {name:'HIPADAN'}
+  ul.list-box
+    if list
+        each item in list
+            li.item= '这是一个列表内容' + item.title
+  if abb.name 
+    p.name= abb.name
+        span.icon 我就是个icon
+  else
+    p.name 暂无内容    
+
+block script
+    script(src='https://s3.ssl.qhres.com/!fd546749/chimee-player.browser.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js')
+    script(src='/javascripts/ob1.js')
+    script(src='/javascripts/urlParse.js')
+    script(src='/javascripts/h5CallApp.js')
+    script(src='/javascripts/index.js')
+    script(type="text/javascript").
+        $(document).ready(function() {
+            console.log('打开首页3')
+            new ChimeePlayer({
+                wrapper: '#xsjVideo',  // video dom容器
+                box: 'native', /*编解码容器 移动端用native,pc用hls*/
+                src: 'http://7xkwa7.media1.z0.glb.clouddn.com/sample_video_L',
+                autoplay: false,
+                controls: true,
+                playsInline: true,
+                preload: true,
+                x5VideoPlayerFullscreen: true,
+                x5VideoOrientation: true,
+                xWebkitAirplay: true,
+                muted: true
+            });
+            let capp = new callApp();
+            let ourl = #{ourl};
+            if(ourl == 123){
+                console.log(#{ourl})
+            }else{
+                console.log(33)
+            }
+            
+        })
+
+        
