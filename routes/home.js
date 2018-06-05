@@ -2,9 +2,11 @@ var express = require('express');
 var router = express.Router();
 var axios = require('axios');
 var app = express();
+var baseUrl = require('./config')
+
 /* GET home page. */
 router.get('/', function (req, res, next) {
-    var url = 'http://apiwx.xiangha.com/DishMenus/Main2/Search/searchResult';
+    var url =  `${baseUrl}/DishMenus/Main2/Search/searchResult`;
     var param = {
         "keywords": "素菜",
         "page": 1,
@@ -16,7 +18,6 @@ router.get('/', function (req, res, next) {
             res.render('home', {
                 title: '首页',
                 list: data.data.data,
-                ourl: '111'
             });
         } else {
             res.render('error', {
@@ -32,14 +33,15 @@ router.get('/', function (req, res, next) {
 router.get('/getUser', function (req, res, next) {
     res.send(user)
 })
-var gUrl = 'http://apiwx.xiangha.com';
 
 router.post('/DishMenus/Main2/Search/searchResult', function (req, res, next) {
     var p1 = new Promise((resolve, reject) => {
-        var url = gUrl + '/DishMenus/Main2/Search/searchResult';
+        var url = `${baseUrl}/DishMenus/Main2/Search/searchResult`;
+        
         var param = req.body;
+        console.log('11:'+url,param);
         axios.post(url, param).then(function (data) {
-            // resolve(data.data)
+            resolve(data.data)
             // resolve('one')
             // console.log('one');
 
@@ -49,10 +51,10 @@ router.post('/DishMenus/Main2/Search/searchResult', function (req, res, next) {
     })
 
     var p2 = new Promise((resolve, reject) => {
-        var url = gUrl + '/DishMenus/Main2/Search/searchResult';
+        var url = `${baseUrl}/DishMenus/Main2/Search/searchResult`;
         var param = req.body;
         axios.post(url, param).then(function (data) {
-            // resolve(data.data)
+            resolve(data.data)
             resolve('two')
             console.log('two');
         }).catch(function (error) {

@@ -1,51 +1,114 @@
 style
     include ../public/stylesheets/home.css
+    include ../public/stylesheets/chimee-mobile-player.min.css
 include layout    
 block content
-  input#ourl(type="hidden",value="#{ourl}")
-  #xsjVideo
-  a#js-go-user.go-user-page(href="/user") 去用户page1
-  - var abb = {name:'HIPADAN'}
-  ul.list-box
-    if list
-        each item in list
-            li.item= '这是一个列表内容' + item.title
-  if abb.name 
-    p.name= abb.name
-        span.icon 我就是个icon
-  else
-    p.name 暂无内容    
+    .xsj-home-wrap
+        .video-outer-box
+            #xsjVideo.xsj-video-box 
+            .video-info
+                // 右侧视频信息区域
+                .right-video-info
+                    .item-info
+                        img.collection-img(src="/images/collection-icon.png", alt="").collection-img
+                        p.info-num 777
+                    .item-info
+                        img.comment-img(src="/images/comment-icon.png", alt="").collection-img
+                        p.info-num 888
+                    .item-info
+                        img.share-img(src="/images/share-icon.png", alt="").collection-img
+                        p.info-num 999
+                // 视频当前底部信息区域         
+                .bottom-video-info
+                    a(href="/author").author-header
+                        img.author-img(src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1526906091431&di=e399d8bb32d05e807ee4f59d3e80af52&imgtype=0&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F019df6573b34d56ac7253f9a6b901d.jpg%401280w_1l_2o_100sh.png", alt="")
+                        p.author-name 是现令啊
+                        span.follow-btn 关注
+                    p.video-desc    恭喜RNG夺得2018MSI季中赛冠军恭喜RNG夺得2018MSI季中赛冠军恭喜RNG夺得2018MSI季中赛冠军
+            // 视频重播蒙层
+            #js-video-replay-layer.video-replay-layer
+                p#js-replay-btn.replay-btn  重播
+                p.open-app-btn 打开APP观看
+        // 第二屏列表内容
+        section.second-screen-box
+            // 作者热门视频
+            .author-hot-video
+                h3.title  ───  @恭喜RNG夺得2018MSI季中赛冠军  ───
+                .hot-list-box
+                    ul.hot-list-ul.clearfix
+                        li
+                            img.video-img(src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=760838121,1565962456&fm=27&gp=0.jpg", alt="")
+                            img.bf-btn.ps-center(src="/images/bf-icon.png", alt="")
+                        li
+                            img.video-img(src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=760838121,1565962456&fm=27&gp=0.jpg", alt="")
+                            img.bf-btn.ps-center(src="/images/bf-icon.png", alt="")
+                        li
+                            img.video-img(src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=760838121,1565962456&fm=27&gp=0.jpg", alt="")
+                            img.bf-btn.ps-center(src="/images/bf-icon.png", alt="")
+                        li
+                            img.video-img(src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=760838121,1565962456&fm=27&gp=0.jpg", alt="")
+                            img.bf-btn.ps-center(src="/images/bf-icon.png", alt="")
+                        li
+                            img.video-img(src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=760838121,1565962456&fm=27&gp=0.jpg", alt="")
+                            img.bf-btn.ps-center(src="/images/bf-icon.png", alt="")
+            .recommend-box
+                h3.title  ───  热门推荐  ───
+                ul.recommend-list.clearfix
+                    li
+                        img.video-img(src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=760838121,1565962456&fm=27&gp=0.jpg", alt="")
+                        .video-info
+                            p.video-name 赛道啊的哦 hi可我儿女情长粉丝发货请问我企鹅
+                            p.author-name 要回家看了
+                    li
+                        img.video-img(src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=760838121,1565962456&fm=27&gp=0.jpg", alt="")
+                        .video-info
+                            p.video-name 赛道啊的哦 hi可我儿女情长粉丝发货请问我企鹅
+                            p.author-name 要回家看了    
+                                
 
+
+
+
+                            
 block script
-    script(src='https://s3.ssl.qhres.com/!fd546749/chimee-player.browser.js')
+    script(src='/javascripts/chimee-mobile-player.min.js')
     script(src='https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js')
+    script(src='https://cdn.bootcss.com/vConsole/3.2.0/vconsole.min.js')
     script(src='/javascripts/ob1.js')
     script(src='/javascripts/urlParse.js')
     script(src='/javascripts/h5CallApp.js')
     script(src='/javascripts/index.js')
     script(type="text/javascript").
         $(document).ready(function() {
-            console.log('打开首页3')
-            new ChimeePlayer({
+            let $replayLayer = $('#js-video-replay-layer'); // 重播蒙层
+            let xsjVideo = new ChimeeMobilePlayer({
                 wrapper: '#xsjVideo',  // video dom容器
                 box: 'native', /*编解码容器 移动端用native,pc用hls*/
                 src: 'http://7xkwa7.media1.z0.glb.clouddn.com/sample_video_L',
-                autoplay: false,
                 controls: true,
                 playsInline: true,
-                preload: true,
+                preload: 'auto',
                 x5VideoPlayerFullscreen: true,
-                x5VideoOrientation: true,
+                x5VideoOrientation: 'landscape|portrait',
                 xWebkitAirplay: true,
-                muted: true
+                autoplay: false
             });
+            xsjVideo.on('ended',function(){
+                $replayLayer.show();
+            })
+            $replayLayer.on('click','#js-replay-btn',function(){
+                $replayLayer.hide();
+                xsjVideo.play();
+            })
             let capp = new callApp();
-            let ourl = #{ourl};
-            if(ourl == 123){
-                console.log(#{ourl})
-            }else{
-                console.log(33)
-            }
+            var vConsole = new VConsole();
+
+            //- playsInline: true,
+            //-     preload: true,
+            //-     x5VideoPlayerFullscreen: true,
+            //-     x5VideoOrientation: true,
+            //-     xWebkitAirplay: true,
+            //-     muted: false
             
         })
 

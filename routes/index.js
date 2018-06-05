@@ -2,8 +2,8 @@ var express = require('express');
 var app = express();
 
 var Home = require('./home');
-var User = require('./user');
+var Author = require('./author');
 app.use('/', Home);
-app.use('/user', User);
+app.use('/author', Author);
 
 module.exports = app;
