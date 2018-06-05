@@ -35,7 +35,13 @@
   color: #fff; }
 
 .xsj-home-wrap .video-outer-box {
+  position: relative;
   height: 33.4375rem; }
+
+.xsj-home-wrap .video-outer-box .video-play-btn {
+  width: 3.125rem;
+  height: 3.125rem;
+  z-index: 3; }
 
 .xsj-home-wrap .video-outer-box .video-info {
   position: absolute;
@@ -146,6 +152,9 @@
   color: #000000;
   font-size: 0.9375rem; }
 
+.xsj-home-wrap .video-outer-box chimee-state {
+  display: none; }
+
 .xsj-home-wrap .video-outer-box .chimee-flex-component svg {
   height: 3.8em; }
 
@@ -223,7 +232,8 @@
   width: 100%;
   padding: 0 0.625rem;
   box-sizing: border-box;
-  text-align: left; }
+  text-align: left;
+  background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.3) 0%, rgba(216, 216, 216, 0) 87%); }
 
 .xsj-home-wrap .second-screen-box .recommend-box .recommend-list li .video-info .video-name {
   font-size: 1rem;

@@ -6,6 +6,8 @@ block content
     .xsj-home-wrap
         .video-outer-box
             #xsjVideo.xsj-video-box 
+            img#js-video-play-btn.video-play-btn.ps-center(src="/images/bf-icon.png", alt="")
+            // 视频信息区域
             .video-info
                 // 右侧视频信息区域
                 .right-video-info
@@ -53,17 +55,47 @@ block content
                             img.bf-btn.ps-center(src="/images/bf-icon.png", alt="")
             .recommend-box
                 h3.title  ───  热门推荐  ───
-                ul.recommend-list.clearfix
+                ul#lazy-ul.recommend-list.clearfix
                     li
-                        img.video-img(src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=760838121,1565962456&fm=27&gp=0.jpg", alt="")
+                        img.video-img.lazy-load(data-original="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=760838121,1565962456&fm=27&gp=0.jpg", alt="")
                         .video-info
                             p.video-name 赛道啊的哦 hi可我儿女情长粉丝发货请问我企鹅
                             p.author-name 要回家看了
                     li
-                        img.video-img(src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=760838121,1565962456&fm=27&gp=0.jpg", alt="")
+                        img.video-img.lazy-load(data-original="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=760838121,1565962456&fm=27&gp=0.jpg", alt="")
                         .video-info
                             p.video-name 赛道啊的哦 hi可我儿女情长粉丝发货请问我企鹅
-                            p.author-name 要回家看了    
+                            p.author-name 要回家看了  
+                    li
+                        img.video-img.lazy-load(data-original="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=760838121,1565962456&fm=27&gp=0.jpg", alt="")
+                        .video-info
+                            p.video-name 赛道啊的哦 hi可我儿女情长粉丝发货请问我企鹅
+                            p.author-name 要回家看了
+                    li
+                        img.video-img.lazy-load(data-original="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=760838121,1565962456&fm=27&gp=0.jpg", alt="")
+                        .video-info
+                            p.video-name 赛道啊的哦 hi可我儿女情长粉丝发货请问我企鹅
+                            p.author-name 要回家看了  
+                    li
+                        img.video-img.lazy-load(data-original="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=760838121,1565962456&fm=27&gp=0.jpg", alt="")
+                        .video-info
+                            p.video-name 赛道啊的哦 hi可我儿女情长粉丝发货请问我企鹅
+                            p.author-name 要回家看了
+                    li
+                        img.video-img.lazy-load(data-original="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=760838121,1565962456&fm=27&gp=0.jpg", alt="")
+                        .video-info
+                            p.video-name 赛道啊的哦 hi可我儿女情长粉丝发货请问我企鹅
+                            p.author-name 要回家看了  
+                    li
+                        img.video-img.lazy-load(data-original="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=760838121,1565962456&fm=27&gp=0.jpg", alt="")
+                        .video-info
+                            p.video-name 赛道啊的哦 hi可我儿女情长粉丝发货请问我企鹅
+                            p.author-name 要回家看了
+                    li
+                        img.video-img.lazy-load(data-original="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=760838121,1565962456&fm=27&gp=0.jpg", alt="")
+                        .video-info
+                            p.video-name 赛道啊的哦 hi可我儿女情长粉丝发货请问我企鹅
+                            p.author-name 要回家看了                            
                                 
 
 
@@ -73,7 +105,7 @@ block content
 block script
     script(src='/javascripts/chimee-mobile-player.min.js')
     script(src='https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js')
-    script(src='https://cdn.bootcss.com/vConsole/3.2.0/vconsole.min.js')
+    script(src='/javascripts/jquery.lazyload.js')
     script(src='/javascripts/ob1.js')
     script(src='/javascripts/urlParse.js')
     script(src='/javascripts/h5CallApp.js')
@@ -81,10 +113,12 @@ block script
     script(type="text/javascript").
         $(document).ready(function() {
             let $replayLayer = $('#js-video-replay-layer'); // 重播蒙层
+            let $playBtn = $('#js-video-play-btn');  // 视频内中心播放按钮
             let xsjVideo = new ChimeeMobilePlayer({
                 wrapper: '#xsjVideo',  // video dom容器
                 box: 'native', /*编解码容器 移动端用native,pc用hls*/
                 src: 'http://7xkwa7.media1.z0.glb.clouddn.com/sample_video_L',
+                poster: "https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=760838121,1565962456&fm=27&gp=0.jpg",
                 controls: true,
                 playsInline: true,
                 preload: 'auto',
@@ -94,21 +128,28 @@ block script
                 autoplay: false
             });
             xsjVideo.on('ended',function(){
+                $playBtn.hide();
                 $replayLayer.show();
+            })
+            xsjVideo.on('play',function(){
+                $playBtn.hide();
+            })
+            xsjVideo.on('pause',function(){
+                $playBtn.show();
             })
             $replayLayer.on('click','#js-replay-btn',function(){
                 $replayLayer.hide();
                 xsjVideo.play();
             })
+            $playBtn.on('click',function(){
+                $(this).hide();
+                xsjVideo.play();
+            })
             let capp = new callApp();
-            var vConsole = new VConsole();
-
-            //- playsInline: true,
-            //-     preload: true,
-            //-     x5VideoPlayerFullscreen: true,
-            //-     x5VideoOrientation: true,
-            //-     xWebkitAirplay: true,
-            //-     muted: false
+            $('img.lazy-load').lazyload({
+                effect: 'fadeIn',   // 渐现，show(直接显示),fadeIn(淡入),slideDown(下拉)
+                threshold: -20 // 预加载，在图片距离屏幕px时提前载入
+            })
             
         })
 

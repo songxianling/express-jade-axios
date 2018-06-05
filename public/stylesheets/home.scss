@@ -5,7 +5,13 @@
   box-sizing: border-box;
   color: #fff;
   .video-outer-box {
+    position: relative;
     height: rpx(1070);
+    .video-play-btn{
+      width: rpx(100);
+      height: rpx(100);
+      z-index: 3;
+    }
     .video-info {
       position: absolute;
       top: rpx(400);
@@ -115,6 +121,9 @@
         font-size: rpx(30);
       }
     }
+    chimee-state{
+      display: none;
+    }
     .chimee-flex-component svg{
       height: 3.8em;
     }
@@ -196,6 +205,7 @@
             padding: 0 rpx(20);
             box-sizing: border-box;
             text-align: left;
+            background-image: linear-gradient(0deg, rgba(0,0,0,0.30) 0%, rgba(216,216,216,0.00) 87%);
             .video-name {
               font-size: rpx(32);
               color: #FFFFFF;
