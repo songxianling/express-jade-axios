@@ -1,0 +1,131 @@
+@import './xsjbase.scss';
+.author-page {
+    position: relative;
+    .author-bg-img {
+        display: block;
+        width: 100%;
+        height: rpx(450);
+        -webkit-filter: blur(5px);
+        /* Chrome, Safari, Opera */
+        filter: blur(5px);
+    }
+    .author-content-box {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: rpx(450);
+        .author-head {
+            width: 100%;
+            height: rpx(50);
+            line-height: rpx(50);
+            font-size: rpx(36);
+            color: #fff;
+            text-align: center;
+        }
+        .author-info {
+            margin-top: rpx(61);
+            .con-top {
+                .author-img {
+                    float: left;
+                    width: rpx(160);
+                    height: rpx(160);
+                    margin-left: rpx(42);
+                    border-radius: 50%;
+                    border: 1px solid #ccc;
+                }
+                .author-data {
+                    float: left;
+                    margin-left: rpx(62);
+                    color: #fff;
+                    .item {
+                        display: inline-block;
+                        width: rpx(90);
+                        margin-right: rpx(70);
+                        text-align: left;
+                        &:nth-last-of-type(1) {
+                            margin-right: 0;
+                        }
+                        .num {
+                            line-height: rpx(32);
+                            font-size: rpx(32);
+                        }
+                        .name {
+                            margin-top: rpx(7);
+                            line-height: rpx(28);
+                            font-size: rpx(28);
+                        }
+                    }
+                    .open-app-btn {
+                        display: block;
+                        width: rpx(340);
+                        height: rpx(60);
+                        line-height: rpx(60);
+                        margin-top: rpx(34);
+                        font-size: rpx(32);
+                        border-radius: rpx(10);
+                        background: #FFDA44;
+                        border-radius: rpx(8);
+                        color: #000000;
+                    }
+                }
+            }
+            .author-autograph {
+                line-height: rpx(38);
+                margin-top: rpx(49);
+                padding: 0 rpx(36);
+                text-align: left;
+                font-size: rpx(26);
+                color: #BBBBBB;
+            }
+        }
+    }
+    .author-works-box {
+        width: 100%;
+        height: 100%;
+        background: #1C1C1C;
+        ul {
+            .item {
+                position: relative;
+                float: left;
+                width: rpx(248);
+                height: rpx(248);
+                margin-right: rpx(3);
+                margin-bottom: rpx(3);
+                background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.30) 0%, rgba(216, 216, 216, 0.00) 87%);
+                &:nth-of-type(3n+3) {
+                    margin-right: 0;
+                }
+                .video-img {
+                    width: 100%;
+                    height: 100%;
+                }
+                .video-info {
+                    position: absolute;
+                    bottom: 0;
+                    width: 100%;
+                    padding: 0 rpx(20);
+                    box-sizing: border-box;
+                    text-align: left;
+                    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.30) 0%, rgba(216, 216, 216, 0.00) 87%);
+                    
+                    .author-name {
+                        margin-bottom: rpx(6);
+                        
+                        color: #CECECE;
+                        line-height: rpx(33);
+                        color: #FFFFFF;
+                        .collection-img{
+                            display: inline-block;
+                            width: rpx(20);
+                            height: rpx(17);
+                            vertical-align: middle;
+                        }
+                        span{
+                            font-size: rpx(24);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

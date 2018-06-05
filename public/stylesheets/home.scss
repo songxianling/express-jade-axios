@@ -98,7 +98,7 @@
       width: 100%;
       height: 100%;
       background:rgba(0, 0, 0, 0.5);
-      z-index: 2;
+      z-index: 99;
       .replay-btn{
         width: rpx(320);
         height: rpx(86);
@@ -108,6 +108,13 @@
         border-radius: rpx(8); 
         color: #FFDA44 ;
         font-size: rpx(30);
+        img{
+          display: inline-block;
+          width: rpx(33);
+          height: rpx(35);
+          margin-right: rpx(6);
+          vertical-align: sub;
+        }
       }
       .open-app-btn{
         width: rpx(320);

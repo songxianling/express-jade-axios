@@ -1,5 +1,66 @@
-extends layout
-
+style
+    include ../public/stylesheets/author.css
+include layout
 block content
-  h1= con
-  input(type="text")
+    .author-page
+        img.author-bg-img(src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=760838121,1565962456&fm=27&gp=0.jpg", alt="")
+        .author-content-box
+            // 头部
+            section.author-head
+                span 是现令啊
+            // 作者信息区域    
+            section.author-info
+                .con-top.clearfix
+                    img.author-img(src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=1492039276,3695054609&fm=27&gp=0.jpg", alt="作者头像") 
+                    .author-data   
+                        .item
+                            p.num 8888
+                            p.name 粉丝
+                        .item
+                            p 77.7w
+                            p 关注
+                        .item
+                            p 7.7w
+                            p 获赞
+                        a.open-app-btn(href="javascript:;") 打开APP关注我           
+                p.author-autograph.ellipsis-2   这是个性签名这是个性签名这是个性签名这是个性签名这是个性签名这是个性签名，没有不显示     
+        section.author-works-box
+            ul#js-author-works-ul
+                li.item
+                    img.video-img.lazy-load(data-original="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=760838121,1565962456&fm=27&gp=0.jpg", alt="")
+                    .video-info
+                        p.author-name 
+                            img.collection-img(src="/images/collection-icon.png", alt="", srcset="")
+                            span 11.7w
+                li.item
+                    img.video-img.lazy-load(data-original="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=760838121,1565962456&fm=27&gp=0.jpg", alt="")
+                    .video-info
+                        p.author-name 
+                            img.collection-img(src="/images/collection-icon.png", alt="", srcset="")
+                            span 要回家看了
+                li.item
+                    img.video-img.lazy-load(data-original="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=760838121,1565962456&fm=27&gp=0.jpg", alt="")
+                    .video-info
+                        p.author-name 
+                            img.collection-img(src="/images/collection-icon.png", alt="", srcset="")
+                            span 要回家看了
+                li.item
+                    img.video-img.lazy-load(data-original="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=760838121,1565962456&fm=27&gp=0.jpg", alt="")
+                    .video-info
+                        p.author-name 
+                            img.collection-img(src="/images/collection-icon.png", alt="", srcset="")
+                            span 要回家看了                                    
+                
+                        
+
+
+
+block script
+    script(src='/javascripts/jquery.lazyload.js')
+    script.
+        $(document).ready(function() {
+            $('img.lazy-load').lazyload({
+                effect: 'fadeIn',   // 渐现，show(直接显示),fadeIn(淡入),slideDown(下拉)
+                threshold: -20 // 预加载，在图片距离屏幕px时提前载入
+            })
+        })                            
