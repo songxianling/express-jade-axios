@@ -6,18 +6,22 @@ var baseUrl = require('./config')
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
-    var url =  `${baseUrl}/DishMenus/Main2/Search/searchResult`;
+    // var url =  `${baseUrl}/DishMenus/Main2/Search/searchResult`;
+    var url =  `https://www.easy-mock.com/mock/5b1773bafbe46869c0b686c8/xsj/home`;
     var param = {
         "keywords": "素菜",
         "page": 1,
         "type": "caipu",
         "userCode": ""
     };
-    axios.post(url, param).then(function (data) {
+    axios.get(url).then(function (data) {
+        
+        
         if (data.data.code == 10000) {
+            console.log(data.data.data);
             res.render('home', {
                 title: '首页',
-                list: data.data.data,
+                modelObj: data.data.data,
             });
         } else {
             res.render('error', {
@@ -61,17 +65,17 @@ router.post('/DishMenus/Main2/Search/searchResult', function (req, res, next) {
             reject('error');
         });
     })
-    Promise.all([p1, p2]).then((result) => {
-        console.log(result);
-        // if(result == 'one'){
-        //     Promise.race([p2])
-        // }else{
-        //     Promise.race([p1])
-        // }
-        res.json(result) //['成功了', 'success']
-    }).catch((error) => {
-        console.log('error')
-    })
+    // Promise.all([p1, p2]).then((result) => {
+    //     console.log(result);
+    //     // if(result == 'one'){
+    //     //     Promise.race([p2])
+    //     // }else{
+    //     //     Promise.race([p1])
+    //     // }
+    //     res.json(result) //['成功了', 'success']
+    // }).catch((error) => {
+    //     console.log('error')
+    // })
     //
     // var url = 'http://apiwx.ixiangha.com/DishMenus/Main2/Search/searchResult';
     // var param = {"keywords":"素菜","page":1,"type":"caipu","userCode":""};

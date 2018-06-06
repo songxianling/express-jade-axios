@@ -13,20 +13,20 @@ block content
                 .right-video-info
                     .item-info
                         img.collection-img(src="/images/collection-icon.png", alt="").collection-img
-                        p.info-num 777
+                        p.info-num #{modelObj.videoInfo.collectionnum}
                     .item-info
                         img.comment-img(src="/images/comment-icon.png", alt="").collection-img
-                        p.info-num 888
+                        p.info-num #{modelObj.videoInfo.commentnum}
                     .item-info
                         img.share-img(src="/images/share-icon.png", alt="").collection-img
-                        p.info-num 999
+                        p.info-num 分享
                 // 视频当前底部信息区域         
                 .bottom-video-info
                     a(href="/author").author-header
-                        img.author-img(src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1526906091431&di=e399d8bb32d05e807ee4f59d3e80af52&imgtype=0&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F019df6573b34d56ac7253f9a6b901d.jpg%401280w_1l_2o_100sh.png", alt="")
-                        p.author-name 是现令啊
+                        img.author-img(src="#{modelObj.videoInfo.authorimg}", alt="")
+                        p.author-name #{modelObj.videoInfo.authorname}
                         span.follow-btn 关注
-                    p.video-desc    恭喜RNG夺得2018MSI季中赛冠军恭喜RNG夺得2018MSI季中赛冠军恭喜RNG夺得2018MSI季中赛冠军
+                    p.video-desc    #{modelObj.videoInfo.videodesc}
             // 视频重播蒙层
             #js-video-replay-layer.video-replay-layer
                 p#js-replay-btn.replay-btn
@@ -37,64 +37,54 @@ block content
         section.second-screen-box
             // 作者热门视频
             .author-hot-video
-                h3.title  ───  @恭喜RNG夺得2018MSI季中赛冠军  ───
+                h3.title  ───  #{modelObj.videoInfo.authorname}的热门视频  ───
                 .hot-list-box
                     ul.hot-list-ul.clearfix
-                        li
-                            img.video-img(src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=760838121,1565962456&fm=27&gp=0.jpg", alt="")
-                            img.bf-btn.ps-center(src="/images/bf-icon.png", alt="")
-                        li
-                            img.video-img(src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=760838121,1565962456&fm=27&gp=0.jpg", alt="")
-                            img.bf-btn.ps-center(src="/images/bf-icon.png", alt="")
-                        li
-                            img.video-img(src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=760838121,1565962456&fm=27&gp=0.jpg", alt="")
-                            img.bf-btn.ps-center(src="/images/bf-icon.png", alt="")
-                        li
-                            img.video-img(src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=760838121,1565962456&fm=27&gp=0.jpg", alt="")
-                            img.bf-btn.ps-center(src="/images/bf-icon.png", alt="")
-                        li
-                            img.video-img(src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=760838121,1565962456&fm=27&gp=0.jpg", alt="")
-                            img.bf-btn.ps-center(src="/images/bf-icon.png", alt="")
+                        each item , index in modelObj.hotVideoList
+                            li
+                                img.video-img(src="#{item.poster}", alt="")
+                                img.bf-btn.ps-center(src="/images/bf-icon.png", alt="")
+                        
             .recommend-box
                 h3.title  ───  热门推荐  ───
                 ul#lazy-ul.recommend-list.clearfix
                     li
-                        img.video-img.lazy-load(data-original="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=760838121,1565962456&fm=27&gp=0.jpg", alt="")
+                        img.video-img.lazy-load(data-original="", alt="")
                         .video-info
                             p.video-name 赛道啊的哦 hi可我儿女情长粉丝发货请问我企鹅
                             p.author-name 要回家看了
                     li
-                        img.video-img.lazy-load(data-original="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=760838121,1565962456&fm=27&gp=0.jpg", alt="")
+                        img.video-img.lazy-load(data-original="", alt="")
                         .video-info
                             p.video-name 赛道啊的哦 hi可我儿女情长粉丝发货请问我企鹅
                             p.author-name 要回家看了  
                     li
-                        img.video-img.lazy-load(data-original="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=760838121,1565962456&fm=27&gp=0.jpg", alt="")
+                        img.video-img.lazy-load(data-original="", alt="")
                         .video-info
                             p.video-name 赛道啊的哦 hi可我儿女情长粉丝发货请问我企鹅
                             p.author-name 要回家看了
                     li
-                        img.video-img.lazy-load(data-original="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=760838121,1565962456&fm=27&gp=0.jpg", alt="")
+                        img.video-img.lazy-load(data-original="", alt="")
                         .video-info
                             p.video-name 赛道啊的哦 hi可我儿女情长粉丝发货请问我企鹅
                             p.author-name 要回家看了  
                     li
-                        img.video-img.lazy-load(data-original="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=760838121,1565962456&fm=27&gp=0.jpg", alt="")
+                        img.video-img.lazy-load(data-original="", alt="")
                         .video-info
                             p.video-name 赛道啊的哦 hi可我儿女情长粉丝发货请问我企鹅
                             p.author-name 要回家看了
                     li
-                        img.video-img.lazy-load(data-original="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=760838121,1565962456&fm=27&gp=0.jpg", alt="")
+                        img.video-img.lazy-load(data-original="", alt="")
                         .video-info
                             p.video-name 赛道啊的哦 hi可我儿女情长粉丝发货请问我企鹅
                             p.author-name 要回家看了  
                     li
-                        img.video-img.lazy-load(data-original="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=760838121,1565962456&fm=27&gp=0.jpg", alt="")
+                        img.video-img.lazy-load(data-original="", alt="")
                         .video-info
                             p.video-name 赛道啊的哦 hi可我儿女情长粉丝发货请问我企鹅
                             p.author-name 要回家看了
                     li
-                        img.video-img.lazy-load(data-original="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=760838121,1565962456&fm=27&gp=0.jpg", alt="")
+                        img.video-img.lazy-load(data-original="", alt="")
                         .video-info
                             p.video-name 赛道啊的哦 hi可我儿女情长粉丝发货请问我企鹅
                             p.author-name 要回家看了                            
@@ -119,8 +109,8 @@ block script
             let xsjVideo = new ChimeeMobilePlayer({
                 wrapper: '#xsjVideo',  // video dom容器
                 box: 'native', /*编解码容器 移动端用native,pc用hls*/
-                src: 'http://7xkwa7.media1.z0.glb.clouddn.com/sample_video_L',
-                poster: "https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=760838121,1565962456&fm=27&gp=0.jpg",
+                src: '#{modelObj.videoInfo.vUrl}',
+                poster: "#{modelObj.videoInfo.poster}",
                 controls: true,
                 playsInline: true,
                 preload: 'auto',
