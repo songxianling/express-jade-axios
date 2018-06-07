@@ -16,6 +16,9 @@
   },
   "devDependencies": {
     "axios": "^0.18.0",
+    "browser-sync": "^2.24.4",
+    "gulp": "^3.9.1",
+    "gulp-nodemon": "^2.2.1",
     "node-sass": "^4.9.0"
   }
 }
