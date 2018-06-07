@@ -7,16 +7,51 @@ var baseUrl = require('./config')
 /* GET home page. */
 router.get('/', function (req, res, next) {
     // var url =  `${baseUrl}/DishMenus/Main2/Search/searchResult`;
-    var url =  `https://www.easy-mock.com/mock/5b1773bafbe46869c0b686c8/xsj/home`;
+    var url = `https://www.easy-mock.com/mock/5b1773bafbe46869c0b686c8/xsj/home`;
     var param = {
         "keywords": "素菜",
         "page": 1,
         "type": "caipu",
         "userCode": ""
     };
+    // res.render('home', {
+    //     title: '首页',
+    //     modelObj: {
+    //         "videoInfo": {
+    //             "vUrl": "http://7xkwa7.media1.z0.glb.clouddn.com/sample_video_L",
+    //             "poster": "https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=760838121,1565962456&fm=27&gp=0.jpg",
+    //             "authorname": "是现令啊",
+    //             "authorimg": "https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=760838121,1565962456&fm=27&gp=0.jpg",
+    //             "collectionnum": "777",
+    //             "commentnum": "888",
+    //             "videodesc": "恭喜RNG夺得2018MSI季中赛冠军恭喜RNG夺得2018MSI季中赛冠军恭喜RNG夺得2018MSI季中赛冠军"
+    //         },
+    //         "hotVideoList": [{
+    //                 "poster": "https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=760838121,1565962456&fm=27&gp=0.jpg",
+    //                 "id": "1"
+    //             },
+    //             {
+    //                 "poster": "https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=760838121,1565962456&fm=27&gp=0.jpg",
+    //                 "id": "1"
+    //             },
+    //             {
+    //                 "poster": "https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=760838121,1565962456&fm=27&gp=0.jpg",
+    //                 "id": "1"
+    //             },
+    //             {
+    //                 "poster": "https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=760838121,1565962456&fm=27&gp=0.jpg",
+    //                 "id": "1"
+    //             },
+    //             {
+    //                 "poster": "https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=760838121,1565962456&fm=27&gp=0.jpg",
+    //                 "id": "1"
+    //             }
+    //         ]
+    //     },
+    //     "code": 10000,
+    //     "msg": "success",
+    // });
     axios.get(url).then(function (data) {
-        
-        
         if (data.data.code == 10000) {
             console.log(data.data.data);
             res.render('home', {
@@ -41,9 +76,9 @@ router.get('/getUser', function (req, res, next) {
 router.post('/DishMenus/Main2/Search/searchResult', function (req, res, next) {
     var p1 = new Promise((resolve, reject) => {
         var url = `${baseUrl}/DishMenus/Main2/Search/searchResult`;
-        
+
         var param = req.body;
-        console.log('11:'+url,param);
+        console.log('11:' + url, param);
         axios.post(url, param).then(function (data) {
             resolve(data.data)
             // resolve('one')

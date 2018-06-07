@@ -23,6 +23,13 @@
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2; }
 
+.ellipsis-3 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3; }
+
 .ps-center {
   position: absolute;
   top: 0;

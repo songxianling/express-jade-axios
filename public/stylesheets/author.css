@@ -23,6 +23,13 @@
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2; }
 
+.ellipsis-3 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3; }
+
 .ps-center {
   position: absolute;
   top: 0;
@@ -36,23 +43,33 @@
   background-size: 100% 100%; }
 
 .author-page {
-  position: relative; }
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #1C1C1C; }
 
-.author-page .author-bg-img {
+.author-page .author-content-box {
+  position: relative;
+  width: 100%;
+  height: 12.1875rem;
+  background: #fff; }
+
+.author-page .author-content-box .author-box {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6); }
+
+.author-page .author-content-box .author-bg-img {
   display: block;
   width: 100%;
-  height: 14.0625rem;
+  height: 100%;
   -webkit-filter: blur(5px);
   /* Chrome, Safari, Opera */
   filter: blur(5px); }
 
-.author-page .author-content-box {
-  position: absolute;
-  top: 0;
-  width: 100%;
-  height: 14.0625rem; }
-
 .author-page .author-content-box .author-head {
+  padding-top: 0.4375rem;
   width: 100%;
   height: 1.5625rem;
   line-height: 1.5625rem;
@@ -73,6 +90,7 @@
 
 .author-page .author-content-box .author-info .con-top .author-data {
   float: left;
+  margin-top: 0.125rem;
   margin-left: 1.9375rem;
   color: #fff; }
 
@@ -87,12 +105,13 @@
 
 .author-page .author-content-box .author-info .con-top .author-data .item .num {
   line-height: 1rem;
-  font-size: 1rem; }
+  font-size: 1rem;
+  font-weight: 400; }
 
 .author-page .author-content-box .author-info .con-top .author-data .item .name {
   margin-top: 0.21875rem;
   line-height: 0.875rem;
-  font-size: 0.875rem; }
+  font-size: 0.8125rem; }
 
 .author-page .author-content-box .author-info .con-top .author-data .open-app-btn {
   display: block;
@@ -116,7 +135,6 @@
 
 .author-page .author-works-box {
   width: 100%;
-  height: 100%;
   background: #1C1C1C; }
 
 .author-page .author-works-box ul .item {
@@ -157,4 +175,7 @@
   vertical-align: middle; }
 
 .author-page .author-works-box ul .item .video-info .author-name span {
+  height: 1.03125rem;
+  line-height: 1.03125rem;
+  margin-left: 1px;
   font-size: 0.75rem; }
