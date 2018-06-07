@@ -1,4 +1,5 @@
 let $openAppBtn = $('.js-open-app');
+console.log(99);
 
 $.ajax({
     type: "POST",
