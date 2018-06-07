@@ -11,13 +11,13 @@ block content
             .video-info
                 // 右侧视频信息区域
                 .right-video-info
-                    .item-info
+                    .item-info.js-open-app
                         img.collection-img(src="/images/collection-icon.png", alt="").collection-img
                         p.info-num #{modelObj.videoInfo.collectionnum}
-                    .item-info
+                    .item-info.js-open-app
                         img.comment-img(src="/images/comment-icon.png", alt="").collection-img
                         p.info-num #{modelObj.videoInfo.commentnum}
-                    .item-info
+                    .item-info.js-open-app
                         img.share-img(src="/images/share-icon.png", alt="").collection-img
                         p.info-num 分享
                 // 视频当前底部信息区域         
@@ -36,14 +36,15 @@ block content
         // 第二屏列表内容
         section.second-screen-box
             // 作者热门视频
-            .author-hot-video
-                h3.title  ───  #{modelObj.videoInfo.authorname}的热门视频  ───
-                .hot-list-box
-                    ul.hot-list-ul.clearfix
-                        each item , index in modelObj.hotVideoList
-                            li
-                                img.video-img(src="#{item.poster}", alt="")
-                                img.bf-btn.ps-center(src="/images/bf-icon.png", alt="")
+            if modelObj.hotVideoList.length 
+                .author-hot-video
+                    h3.title  ───  #{modelObj.videoInfo.authorname}的热门视频  ───
+                    .hot-list-box
+                        ul.hot-list-ul.clearfix
+                            each item , index in modelObj.hotVideoList
+                                li
+                                    img.video-img(src="#{item.poster}", alt="")
+                                    img.bf-btn.ps-center(src="/images/bf-icon.png", alt="")
                         
             .recommend-box
                 h3.title  ───  热门推荐  ───
@@ -87,8 +88,9 @@ block content
                         img.video-img.lazy-load(data-original="", alt="")
                         .video-info
                             p.video-name 赛道啊的哦 hi可我儿女情长粉丝发货请问我企鹅
-                            p.author-name 要回家看了                            
-                                
+                            p.author-name 要回家看了 1
+        // 底部默认提示语                                               
+        include xsjPlaceholder                        
 
 
 
@@ -106,11 +108,13 @@ block script
         $(document).ready(function() {
             let $replayLayer = $('#js-video-replay-layer'); // 重播蒙层
             let $playBtn = $('#js-video-play-btn');  // 视频内中心播放按钮
+
+
             let xsjVideo = new ChimeeMobilePlayer({
                 wrapper: '#xsjVideo',  // video dom容器
                 box: 'native', /*编解码容器 移动端用native,pc用hls*/
                 src: '#{modelObj.videoInfo.vUrl}',
-                poster: "#{modelObj.videoInfo.poster}",
+                poster: '!{modelObj.videoInfo.poster}',
                 controls: true,
                 playsInline: true,
                 preload: 'auto',
@@ -137,11 +141,12 @@ block script
                 $(this).hide();
                 xsjVideo.play();
             })
-            let capp = new callApp();
             $('img.lazy-load').lazyload({
                 effect: 'fadeIn',   // 渐现，show(直接显示),fadeIn(淡入),slideDown(下拉)
                 threshold: -20 // 预加载，在图片距离屏幕px时提前载入
-            })
+            });
+
+            
             
         })
 
