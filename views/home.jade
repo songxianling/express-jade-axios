@@ -30,8 +30,7 @@ block content
             // 视频重播蒙层
             #js-video-replay-layer.video-replay-layer
                 p#js-replay-btn.replay-btn
-                    img.replay-img(src="/images/replay-icon.png", alt="")
-                    重播 
+                    img.replay-img(src="/images/replay-icon.png", alt="")=重播 
                 p.open-app-btn 打开APP观看
         // 第二屏列表内容
         section.second-screen-box
@@ -100,8 +99,6 @@ block script
     script(src='/javascripts/chimee-mobile-player.min.js')
     script(src='https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js')
     script(src='/javascripts/jquery.lazyload.js')
-    script(src='/javascripts/ob1.js')
-    script(src='/javascripts/urlParse.js')
     script(src='/javascripts/h5CallApp.js')
     script(src='/javascripts/index.js')
     script(type="text/javascript").
@@ -145,9 +142,6 @@ block script
                 effect: 'fadeIn',   // 渐现，show(直接显示),fadeIn(淡入),slideDown(下拉)
                 threshold: -20 // 预加载，在图片距离屏幕px时提前载入
             });
-
-            
-            
         })
 
         
