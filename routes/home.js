@@ -53,7 +53,7 @@ router.get('/', function (req, res, next) {
     // });
     axios.get(url).then(function (data) {
         if (data.data.code == 10000) {
-            console.log(data.data.data);
+            // console.log(data.data.data);
             res.render('home', {
                 title: '首页',
                 modelObj: data.data.data,
@@ -73,33 +73,36 @@ router.get('/getUser', function (req, res, next) {
     res.send(user)
 })
 
-router.post('/DishMenus/Main2/Search/searchResult', function (req, res, next) {
-    var p1 = new Promise((resolve, reject) => {
-        var url = `${baseUrl}/DishMenus/Main2/Search/searchResult`;
+router.post('/desc', function (req, res, next) {
+    console.log('前端请求');
+    console.log('ajax=======>'+req.url);
+    console.log(req.body.url);
+    // var p1 = new Promise((resolve, reject) => {
+    //     var url = `${baseUrl}/DishMenus/Main2/Search/searchResult`;
 
-        var param = req.body;
-        console.log('11:' + url, param);
-        axios.post(url, param).then(function (data) {
-            resolve(data.data)
-            // resolve('one')
-            // console.log('one');
+    //     var param = req.body;
+    //     console.log('11:' + url, param);
+    //     axios.post(url, param).then(function (data) {
+    //         resolve(data.data)
+    //         // resolve('one')
+    //         // console.log('one');
 
-        }).catch(function (error) {
-            reject('error');
-        });
-    })
+    //     }).catch(function (error) {
+    //         reject('error');
+    //     });
+    // })
 
-    var p2 = new Promise((resolve, reject) => {
-        var url = `${baseUrl}/DishMenus/Main2/Search/searchResult`;
-        var param = req.body;
-        axios.post(url, param).then(function (data) {
-            resolve(data.data)
-            resolve('two')
-            console.log('two');
-        }).catch(function (error) {
-            reject('error');
-        });
-    })
+    // var p2 = new Promise((resolve, reject) => {
+    //     var url = `${baseUrl}/DishMenus/Main2/Search/searchResult`;
+    //     var param = req.body;
+    //     axios.post(url, param).then(function (data) {
+    //         resolve(data.data)
+    //         resolve('two')
+    //         console.log('two');
+    //     }).catch(function (error) {
+    //         reject('error');
+    //     });
+    // })
     // Promise.all([p1, p2]).then((result) => {
     //     console.log(result);
     //     // if(result == 'one'){

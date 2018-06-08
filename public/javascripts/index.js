@@ -1,10 +1,10 @@
 let $openAppBtn = $('.js-open-app');
-console.log(99);
 
 $.ajax({
     type: "POST",
-    url: "/DishMenus/Main2/Search/searchResult",
+    url: "/desc",
     data: {
+        'url':'/DishMenus/Main2/Search/searchResult',
         "keywords": "素菜",
         "type": "caipu",
         'page': 2

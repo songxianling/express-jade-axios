@@ -30,10 +30,10 @@ gulp.task('server', ["node"], function () {
 
     //gulp.run(["node"]);
     browserSync.init(files, {
-        proxy: '192.168.1.61:1717',
+        proxy: '192.168.1.61:1111',
         browser: 'chrome',
         notify: false,
-        port: 1718 //这个是browserSync对proxy实现的代理端口
+        port: 1112 //这个是browserSync对proxy实现的代理端口
 
     });
     gulp.watch(files).on("change", reload);
