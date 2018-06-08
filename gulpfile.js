@@ -28,7 +28,7 @@ gulp.task('sass', function () {
         // 展开输出方式 expanded 
         // 紧凑输出方式 compact 
         // 压缩输出方式 compressed
-        .pipe(sass({outputStyle: 'compressed'}))
+        .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
         .pipe(gulp.dest('public/stylesheets/css'))
 })
 

@@ -8,6 +8,8 @@
 
     需要先安装 node-sass 
 
+    
+
 ## 3.开启热更新模式
     gulp server    
 
@@ -20,6 +22,10 @@
     cnpm install gulp-nodemon --save-dev
 
 ## 需要同时  启动 2和3服务才能达到成功的自动刷新效果
+
+## 4.升级1
+
+    进入开发；可直接单独执行npm run dev 来开启热更新和sass转css服务
 
 
 
