@@ -4,13 +4,17 @@
 var gulp = require('gulp');
 // 添加引用
 var browserSync = require('browser-sync');
+var sass = require('gulp-sass');
 var reload = browserSync.reload;
 var nodemon = require('gulp-nodemon');
+
+
 
 //这个可以让express启动
 gulp.task("node", function () {
     nodemon({
         script: './app.js',
+        ignore: ['.vscode', '.idea', 'node_modules'],
         ext: 'js html',
         env: {
             'NODE_ENV': 'development'
@@ -18,6 +22,15 @@ gulp.task("node", function () {
     })
 });
 
+gulp.task('sass', function () {
+    return gulp.src('public/stylesheets/*.scss')
+        // 嵌套输出方式 nested
+        // 展开输出方式 expanded 
+        // 紧凑输出方式 compact 
+        // 压缩输出方式 compressed
+        .pipe(sass({outputStyle: 'compressed'}))
+        .pipe(gulp.dest('public/stylesheets/css'))
+})
 
 gulp.task('server', ["node"], function () {
     var files = [
@@ -37,4 +50,5 @@ gulp.task('server', ["node"], function () {
 
     });
     gulp.watch(files).on("change", reload);
+    gulp.watch('public/stylesheets/*.scss',['sass']);
 });
