@@ -5,7 +5,8 @@
   "scripts": {
     "start": "node ./bin/www",
     "sass": "node-sass",
-    "dev": "gulp server"
+    "dev": "gulp dev",
+    "test": "gulp test"
   },
   "dependencies": {
     "cookie-parser": "~1.4.3",

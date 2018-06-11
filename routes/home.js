@@ -2,16 +2,24 @@ var express = require('express');
 var router = express.Router();
 var axios = require('axios');
 var app = express();
-var baseUrl = require('./config')
+var baseUrl = require('../config')
+var xsjEnv = process.env.NODE_ENV;
 
 /* GET home page. */
-router.get('/vInfo/:uId(\\d+)/:vCode', function (req, res, next) {
-    // :uId  的冒号指定uId是一个参数；但是这个参数没有过滤作用；任何字符都将被使用；
-    // 所以可以在:uId 后面添加( )来增加正则匹配规则；此时注意正则的转义 \ 
-    // var url =  `${baseUrl}/DishMenus/Main2/Search/searchResult`;
+router.get('/', function (req, res, next) {
+    let ApiUrl ;
+    console.log(333);
+    
+    if(xsjEnv == 'dev'){
+        ApiUrl = `${process.env.BASE_URL}:${process.env.BASE_PORT}`;
+    }else if(xsjEnv == 'test'){
+        ApiUrl = `${process.env.BASE_URL}:${process.env.BASE_PORT}`;
+    }
+    console.log(ApiUrl);
+    
     var url = `https://www.easy-mock.com/mock/5b1773bafbe46869c0b686c8/xsj/home`;
-    var param = req.params.uId;
-    console.log(req.params.uId,req.params.vCode);
+    // var param = req.query;
+    // console.log(req.query);
     
     // res.render('home', {
     //     title: '首页',
