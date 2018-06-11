@@ -25,7 +25,9 @@
 
 ## 4.升级1
 
-    进入开发；可直接单独执行npm run dev 来开启热更新和sass转css服务
+    在开发过程中；可直接单独执行npm run dev 来开启热更新和sass转css服务
+
+    进入命令行中提示的  External 地址即可
 
 
 
