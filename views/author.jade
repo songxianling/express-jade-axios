@@ -4,7 +4,7 @@ include layout
 block content
     .author-page
         .author-content-box
-            img.author-bg-img(src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3381931127,2333198611&fm=27&gp=0.jpg", alt="")
+            img.author-bg-img(src="#{modelObj.userInfo.img}", alt="")
             // 头部
             .author-box
                 //- section.author-head
@@ -12,45 +12,31 @@ block content
                 // 作者信息区域    
                 section.author-info
                     .con-top.clearfix
-                        img.author-img(src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=1492039276,3695054609&fm=27&gp=0.jpg", alt="作者头像") 
+                        img.author-img(src="#{modelObj.userInfo.img}", alt="作者头像") 
                         .author-data   
                             .item
-                                p.num 8888
+                                p.num #{modelObj.userOther.funNum}
                                 p.name 粉丝
                             .item
-                                p.num 77.7w
+                                p.num #{modelObj.userOther.followNum}
                                 p.name 关注
                             .item
-                                p.num 7.7w
+                                p.num #{modelObj.userOther.praiseNum}
                                 p.name 获赞
-                            a.open-app-btn(href="javascript:;") 打开APP关注我           
-                    p.author-autograph.ellipsis-2   这是个性签名这是个性签名这是个性签名这是个性签名这是个性签名这是个性签名，没有不显示     
-        section.author-works-box
-            ul#js-author-works-ul.clearfix
-                li.item
-                    img.video-img.lazy-load(data-original="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2738078510,3278658201&fm=27&gp=0.jpg", alt="")
-                    .video-info
-                        p.author-name 
-                            img.collection-img(src="/images/collection-small-icon.png", alt="", srcset="")
-                            span 11.7w
-                li.item
-                    img.video-img.lazy-load(data-original="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2738078510,3278658201&fm=27&gp=0.jpg", alt="")
-                    .video-info
-                        p.author-name 
-                            img.collection-img(src="/images/collection-small-icon.png", alt="", srcset="")
-                            span 要回家看了
-                li.item
-                    img.video-img.lazy-load(data-original="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2738078510,3278658201&fm=27&gp=0.jpg", alt="")
-                    .video-info
-                        p.author-name 
-                            img.collection-img(src="/images/collection-small-icon.png", alt="", srcset="")
-                            span 要回家看了
-                li.item
-                    img.video-img.lazy-load(data-original="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2738078510,3278658201&fm=27&gp=0.jpg", alt="")
-                    .video-info
-                        p.author-name 
-                            img.collection-img(src="/images/collection-small-icon.png", alt="", srcset="")
-                            span 要回家看了                                    
+                            a.open-app-btn(href="javascript:;") 打开APP关注我 
+
+                    p.author-autograph.ellipsis-2   #{modelObj.userInfo.info}
+        if modelObj.hotVideoList.length             
+            section.author-works-box
+                ul#js-author-works-ul.clearfix
+                    each item,index in modelObj.hotVideoList
+                        li.item
+                            img.video-img.lazy-load(data-original="#{item.imgUrl}", alt="")
+                            .video-info
+                                p.author-name 
+                                    img.collection-img(src="/images/collection-small-icon.png", alt="", srcset="")
+                                    span #{item.connectInfo.collectNum}
+                                                   
         // 底部默认提示语                                               
         include xsjPlaceholder          
 block script
