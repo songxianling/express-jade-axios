@@ -10,18 +10,18 @@ block content
             // 视频信息区域
             #js-video-info.video-info
                 // 右侧视频信息区域
-                .right-video-info
-                    .item-info.js-open-app
+                .right-video-info.js-open-app
+                    .item-info
                         img.collection-img(src="/images/collection-icon.png", alt="").collection-img
                         p.info-num #{modelObj.info.connectInfo.collectNum}
-                    .item-info.js-open-app
+                    .item-info
                         img.comment-img(src="/images/comment-icon.png", alt="").collection-img
                         p.info-num #{modelObj.info.connectInfo.commentNum}
-                    .item-info.js-open-app
+                    .item-info
                         img.share-img(src="/images/share-icon.png", alt="").collection-img
                         p.info-num 分享
                 // 视频当前底部信息区域         
-                .bottom-video-info
+                .bottom-video-info.js-open-app
                     .author-header
                         img.author-img(src="#{modelObj.info.userInfo.img}", alt="")
                         p.author-name #{modelObj.info.userInfo.nickName}
@@ -32,7 +32,7 @@ block content
                 p#js-replay-btn.replay-btn
                     img.replay-img(src="/images/replay-icon.png", alt="")
                     span 重播 
-                p.open-app-btn 打开APP观看
+                p.open-app-btn.js-open-app 打开APP观看
         // 第二屏列表内容
         section.second-screen-box
             // 作者热门视频
@@ -40,18 +40,20 @@ block content
                 .author-hot-video
                     h3.title  ───  #{modelObj.info.userInfo.nickName}的热门视频  ───
                     .hot-list-box
-                        ul.hot-list-ul.clearfix
+                        ul.hot-list-ul.clearfix.js-open-app
                             each item , index in modelObj.hotVideoList
-                                li
-                                    img.video-img(src="#{item.imgUrl}", alt="")
-                                    img.bf-btn.ps-center(src="/images/bf-icon.png", alt="")
-                                li
-                                    img.video-img(src="#{item.imgUrl}", alt="")
-                                    img.bf-btn.ps-center(src="/images/bf-icon.png", alt="")    
+                                if index == 5
+                                    li
+                                        img.video-img(src="#{item.imgUrl}", alt="")
+                                        .more-pop 点击查看更多
+                                else
+                                    li
+                                        img.video-img(src="#{item.imgUrl}", alt="")
+                                        img.bf-btn.ps-center(src="/images/bf-icon.png", alt="")
                         
             .recommend-box
                 h3.title  ───  热门推荐  ───
-                ul#lazy-ul.recommend-list.clearfix
+                ul#lazy-ul.recommend-list.clearfix.js-open-app
                     each item , index in modelObj.recomVideoList
                         li
                             img.video-img.lazy-load(data-original="#{item.imgUrl}", alt="")

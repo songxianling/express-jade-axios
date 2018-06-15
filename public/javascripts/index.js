@@ -15,8 +15,10 @@ $.ajax({
     }
 })
 
-$openAppBtn.on("click", () => {
+$openAppBtn.on("click", (event) => {
+    console.log('打开APP');
     handleFn.openApp();
+    event.stopPropagation();
 })
 
 let handleFn = {

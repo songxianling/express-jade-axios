@@ -2,8 +2,8 @@
 
 module.exports = {
   'DevApi': 'http://apiweb.xhyyym1.com',
-  'DevPort': '9806',
-  'TestApi': 'http://apiweb.iiixhyyym1.com',
+  'DevPort': '8801',
+  'TestApi': 'http://apiweb.xhyyym1.com',
   'TestPort': '7777',
   'ProdApi': 'http://apiweb.xhyyym1.com',
   'ProdPort': '1111',

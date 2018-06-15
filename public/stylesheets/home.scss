@@ -25,7 +25,7 @@
         position: absolute;
         top: rpx(246);
         right: rpx(29);
-        z-index: 100;
+        z-index: 100; // pointer-events: none;
         .item-info {
           width: rpx(62);
           margin-bottom: rpx(40);
@@ -130,16 +130,19 @@
         font-size: rpx(30);
       }
     }
+    container, video{
+      object-fit: fill;
+    }
     chimee-state {
       display: none;
     }
     .chimee-flex-component svg {
       height: 3.8em;
     }
-    chimee-control-wrap{
+    chimee-control-wrap {
       background: rgba(0, 0, 0, 0.7)
     }
-    chimee-control{
+    chimee-control {
       display: none !important;
     }
     container {
@@ -188,6 +191,17 @@
           .bf-btn {
             width: rpx(82);
             height: rpx(82);
+          }
+          .more-pop {
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: inline-block;
+            width: 100%;
+            height: rpx(341);
+            line-height: rpx(341);
+            background: rgba(0, 0, 0, 0.7);
+            color: #fff;
           }
         }
       }
