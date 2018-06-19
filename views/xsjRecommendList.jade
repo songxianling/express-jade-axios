@@ -1,0 +1,13 @@
+style
+  include ../public/stylesheets/css/xsjRecommendList.css
+block content
+  .recommend-box
+    h3.title  ───  热门推荐  ───
+    ul#lazy-ul.recommend-list.clearfix.js-open-app
+        each item , index in modelObj.recomVideoList
+            li
+                img.video-img.lazy-load(data-original="#{item.imgUrl}", alt="")
+                .video-info
+                    p.video-name #{item.desc}  
+                    p.author-name #{item.userInfo.nickName} 
+    

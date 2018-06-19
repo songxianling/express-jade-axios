@@ -1,4 +1,11 @@
 extends layout
 
 block content
-  h1= message
+  include xsjRecommendList
+
+block script
+  script(type="text/javascript").
+    $('img.lazy-load').lazyload({
+      effect: 'fadeIn',   // 渐现，show(直接显示),fadeIn(淡入),slideDown(下拉)
+      threshold: -20 // 预加载，在图片距离屏幕px时提前载入
+    });  

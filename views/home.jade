@@ -50,30 +50,14 @@ block content
                                     li
                                         img.video-img(src="#{item.imgUrl}", alt="")
                                         img.bf-btn.ps-center(src="/images/bf-icon.png", alt="")
-                        
-            .recommend-box
-                h3.title  ───  热门推荐  ───
-                ul#lazy-ul.recommend-list.clearfix.js-open-app
-                    each item , index in modelObj.recomVideoList
-                        li
-                            img.video-img.lazy-load(data-original="#{item.imgUrl}", alt="")
-                            .video-info
-                                p.video-name #{item.desc}  
-                                p.author-name #{item.userInfo.nickName}  
-                    
+            // 热门推荐视频             
+            include xsjRecommendList
         // 底部默认提示语                                               
         include xsjPlaceholder                        
-
-
-
 
                             
 block script
     script(src='/javascripts/chimee-mobile-player.min.js')
-    script(src='https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js')
-    script(src='/javascripts/jquery.lazyload.js')
-    script(src='/javascripts/h5CallApp.js')
-    script(src='/javascripts/index.js')
     script(type="text/javascript").
         $(document).ready(function() {
             let $vBox = $('#js-xsj-video-box'); // 视频盒子
