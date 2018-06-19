@@ -13,6 +13,7 @@
         .author-box{
             position: absolute;
             top: 0;
+            width: 100%;
             height: 100%;
             background: rgba(0, 0, 0, 0.6);
         }
@@ -60,11 +61,13 @@
                         }
                         .num {
                             line-height: rpx(32);
+                            text-align: center;
                             font-size: rpx(32);
                             font-weight: 400;
                         }
                         .name {
                             margin-top: rpx(7);
+                            text-align: center;
                             line-height: rpx(28);
                             font-size: rpx(26);
                         }
