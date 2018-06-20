@@ -94,7 +94,7 @@ router.get('/', function (req, res, next) {
                 delete data.data.data.list;
                 resolve(data.data.data)
                 // resolve('one')
-                console.log(data.data.data);
+                // console.log(data.data.data);
                 res.render('error', {
                     title: '没找到视频信息～',
                     modelObj: data.data.data,

@@ -1,7 +1,10 @@
-extends layout
-
+style
+  include ../public/stylesheets/css/errorPage.css
+include layout
 block content
-  include xsjRecommendList
+  .xsj-error-page
+    p.err-text 视频找不到了，看看其他精彩作品吧！
+    include xsjRecommendList
 
 block script
   script(type="text/javascript").
