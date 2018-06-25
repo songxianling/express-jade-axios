@@ -1,7 +1,25 @@
+# express+jade+gulp 项目
 
+## 关键命令
 
+``` bash
+# 加载模块
+npm install
+
+# 运行测试环境，已配置热更新
+npm run dev
+
+# 打包用于生产环境
+npm run test
+```
+
+想查看代码展示效果；可直接单独执行npm run dev 来开启热更新和sass转css服务
+
+    进入命令行中提示的  External 地址即可～～
+
+## 已废弃readme
 ## 1.单独启动服务
-    nodemon app.js
+    ~~nodemon app.js~~
     监听app.js下面的端口服务
 ## 2.启动sass编译
     node-sass  -w -r ../stylesheets -o ../stylesheets
@@ -23,11 +41,9 @@
 
 ## 需要同时  启动 2和3服务才能达到成功的自动刷新效果
 
-## 4.升级1
 
-    在开发过程中；可直接单独执行npm run dev 来开启热更新和sass转css服务
 
-    进入命令行中提示的  External 地址即可
+    
 
 
 https://expressjs.com/en/3x/api.html#request
