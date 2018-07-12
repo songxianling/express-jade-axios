@@ -17,6 +17,11 @@ npm run test
 
     进入命令行中提示的  External 地址即可～～
 
+http://localhost:5000/?svCode=1258&userCode=aaaa38bcd  进入主页
+http://localhost:5000/author?svCode=1258&userCode=aaaa38bcd  进入个人中心
+http://localhost:5000/123123  全部展示404页面；路由不改变
+
+
 ## 已废弃readme
 ## 1.单独启动服务
     ~~nodemon app.js~~

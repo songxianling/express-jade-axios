@@ -1,0 +1,13 @@
+style
+  include ../public/stylesheets/css/errorPage.css
+include layout
+block content
+  .xsj-error-page
+    p.err-text 404
+
+block script
+  script(type="text/javascript").
+    $('img.lazy-load').lazyload({
+      effect: 'fadeIn',   // 渐现，show(直接显示),fadeIn(淡入),slideDown(下拉)
+      threshold: -20 // 预加载，在图片距离屏幕px时提前载入
+    });  
