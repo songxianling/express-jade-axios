@@ -20,6 +20,7 @@ var xsjEnv = process.env.NODE_ENV;
 router.get('/', function (req, res, next) {
     let ApiUrl;
     console.log(`参数为${req.query.svCode}`);
+    // 根据不同的环境赋值不同的api接口地址
     ApiUrl = `${process.env.BASE_URL}:${process.env.BASE_PORT}`;
     if (req.query.svCode) {
         // 获取视频详情
